@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Example App</title>
-</head>
-<body>
-<nav>
-  {{#if LoggedIn}}
-  <a href="/logout">logout</a>
-  {{else}}
-  <a href="/login">login</a>
-  {{/if}}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blog</title>
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{{title}}</h1>
+      <nav>
 
- 
-  <a href="/">home</a></nav>
-    {{{body}}}
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
 
-</body>
+        {{#if LoggedIn}}
+          <a href="/logout">logout</a>
+        {{else}}
+          <a href="/login">login</a>
+        {{/if}}
+
+      </nav>
+    </header>
+
+    <main>
+      {{{body}}}
+      <!-- Dynamic content area -->
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Maven's Tech Blog</p>
+    </footer>
+  </body>
 </html>
