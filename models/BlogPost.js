@@ -2,6 +2,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
+
 const BlogPost = sequelize.define('BlogPost', {
   title: {
     type: DataTypes.STRING,
@@ -13,18 +14,6 @@ const BlogPost = sequelize.define('BlogPost', {
   }
 });
 
-// BlogPost.js
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-const Comment = require('./Comment');
-
-const BlogPost = sequelize.define('BlogPost', {
-  // Attributes...
-});
-
-BlogPost.hasMany(Comment); // One-to-many association
-
-module.exports = BlogPost;
-
+BlogPost.hasMany(Comment); // Define one-to-many association with Comment model
 
 module.exports = BlogPost;
