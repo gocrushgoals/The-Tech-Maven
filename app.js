@@ -59,6 +59,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// Mount route files as middleware
+app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
+
+
 app.post('/login', function (req, res) { 
   //verify user credentials
 
