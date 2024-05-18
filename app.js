@@ -1,13 +1,37 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const path = require('path');
 
-const sequelize = require('./config/connection');
+const Sequelize = require('sequelize');
+// initalize sequelize with session store
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+
+// create database
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  dialect: 'mysql',
+  dialectModule: require('mysql2'),
+  port: process.env.DB_PORT
+});
+
+const connection = require('./config/connection');
 const BlogPost = require('./models/BlogPost');
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+// Test the connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((error) => {
+    console.error('Unable to connect to the database:', error);
+  });
+
 
 const sess = {
   secret: 'ikel23jslwer0lnmciek',
@@ -15,8 +39,7 @@ const sess = {
     maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: true,
     secure: false,
-    sameSite: 'strict',
-  },
+    },
   resave: false,
   saveUninitialized: true,
 };
