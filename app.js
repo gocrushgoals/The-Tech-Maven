@@ -32,6 +32,8 @@ sequelize
     console.error('Unable to connect to the database:', error);
   });
 
+  app.use(express.static(path.join(__dirname, 'public')));
+ 
 
 const sess = {
   secret: 'ikel23jslwer0lnmciek',
