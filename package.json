@@ -1,4 +1,8 @@
 {
+    "scripts": {
+      "start": "node app.js"
+    },
+
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
@@ -14,6 +18,7 @@
     "mysql2": "^3.9.7",
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "start": "^5.1.0"
   }
 }
