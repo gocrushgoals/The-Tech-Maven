@@ -18,7 +18,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 
 const connection = require('./config/connection');
 const BlogPost = require('./models/BlogPost');
-const User = require('./models/user'); // Import your User model
+const User = require('./models/User'); // Import your User model
 
 const app = express();
 const port = process.env.PORT || 3001;
