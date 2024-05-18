@@ -61,22 +61,54 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/login', function (req, res) {
-  // Verify user credentials
-  req.session.save(function (err) {
-    req.session.id = req.body.id;
-    req.session.username = req.body.username;
-    req.session.loggedIn = true;
-    res.send('logged in');
+// Define routes
+// Home Page Route
+app.get('/', (req, res) => {
+  res.render('home', {
+      pageTitle: 'Maven Tech Blog',
+      loggedIn: req.session.loggedIn, // Assuming you have a session with loggedIn property
+      posts: ["Post 1", "Post 2", "Post 3", "Post 4"] // Sample posts
   });
 });
 
-app.get('/', function (req, res) {
-  res.render('home', {
-    posts: ["Post 1", "Post 2", "Post 3", "Post 4"],
-    loggedIn: true,
+// Dashboard Page Route
+app.get('/dashboard', (req, res) => {
+  // Render the dashboard template with posts data
+  res.render('dashboard', {
+      pageTitle: 'Dashboard',
+      loggedIn: req.session.loggedIn, // Assuming you have a session with loggedIn property
+      posts: [] // Placeholder for posts data from database
   });
 });
+
+// Login Page Route
+app.get('/login', (req, res) => {
+  res.render('login', {
+      pageTitle: 'Login'
+  });
+});
+
+// Signup Page Route
+app.get('/signup', (req, res) => {
+  res.render('signup', {
+      pageTitle: 'Sign Up'
+  });
+});
+
+// Logout Route
+app.get('/logout', (req, res) => {
+  // Handle logout logic (clear session, redirect to home page, etc.)
+  // Example:
+  req.session.destroy((err) => {
+      if (err) {
+          console.error('Error destroying session:', err);
+          return res.sendStatus(500);
+      }
+      // Redirect to home page after logout
+      res.redirect('/');
+  });
+});
+
 
 // Initialize Sequelize connection
 sequelize.sync({ force: false }).then(() => {

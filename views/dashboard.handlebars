@@ -1,0 +1,10 @@
+<h2>Dashboard</h2>
+{{#if posts.length}}
+<ul>
+    {{#each posts}}
+    <li>{{this.title}}</li> <!-- Assuming posts is an array of objects with a title property -->
+    {{/each}}
+</ul>
+{{else}}
+<p>No posts available.</p>
+{{/if}}
