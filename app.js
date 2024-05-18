@@ -97,6 +97,32 @@ app.get('/signup', (req, res) => {
   });
 });
 
+
+// POST Route for Adding New Blog Post
+app.post('/posts/new', (req, res) => {
+  // Handle requests to add a new blog post
+});
+
+// POST Route for Updating Blog Post
+app.post('/posts/:id/update', (req, res) => {
+  // Handle requests to update an existing blog post
+});
+
+// POST Route for Deleting Blog Post
+app.post('/posts/:id/delete', (req, res) => {
+  // Handle requests to delete an existing blog post
+});
+
+// GET Route for Individual Blog Post
+app.get('/posts/:id', (req, res) => {
+  // Render a single blog post with its details and comments
+});
+
+// POST Route for Adding Comment
+app.post('/posts/:id/comment', (req, res) => {
+  // Handle requests to add a comment to a blog post
+});
+
 // Logout Route
 app.get('/logout', (req, res) => {
   // Handle logout logic (clear session, redirect to home page, etc.)
