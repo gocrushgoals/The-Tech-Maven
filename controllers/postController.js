@@ -40,10 +40,38 @@ const deletePost = (req, res) => {
   res.send(`Delete post with ID ${postId}`);
 };
 
+// controllers/postController.js
+
+// Import the Post model
+const Post = require('../models/Post');
+
+// Example controller method to render the home page
+const renderHomePage = async (req, res) => {
+    try {
+        // Fetch posts from the database
+        const posts = await Post.findAll();
+
+        // Render the home view with the posts data
+        res.render('home', {
+            pageTitle: 'Home',
+            posts // Pass posts data to the view
+        });
+    } catch (error) {
+        // Handle errors
+        console.error('Error fetching posts:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 module.exports = {
   getAllPosts,
   getPostById,
   createPost,
   updatePost,
-  deletePost
+  deletePost,
+  renderHomePage,
+  renderNewPostPage,
+  renderEditPostPage,
+  createPost,
+  updatePost,
 };

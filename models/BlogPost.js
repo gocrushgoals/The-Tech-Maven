@@ -1,19 +1,9 @@
 // BlogPost.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-
+const sequelize = require('../config/connection');
 
 const BlogPost = sequelize.define('BlogPost', {
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  content: {
-    type: DataTypes.TEXT,
-    allowNull: false
-  }
+  // Define attributes...
 });
-
-BlogPost.hasMany(Comment); // Define one-to-many association with Comment model
 
 module.exports = BlogPost;

@@ -1,6 +1,9 @@
-const sequelize = require('./config/database');
 const BlogPost = require('./models/BlogPost');
 const User = require('./models/User');
+
+const sequelize = require('./config/database');
+
+
 
 // Function to synchronize models with database
 async function syncDatabase() {

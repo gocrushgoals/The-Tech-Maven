@@ -1,8 +1,10 @@
-{{#each posts}}
-<div class="post">
-    <h2>{{title}}</h2>
-    <p>{{content}}</p>
-</div>
-{{else}}
-<p>No posts found.</p>
-{{/each}}
+{{#extends "main"}}
+
+{{#block "content"}}
+    <h2>Welcome to Maven Tech</h2>
+    <ul>
+        {{#each posts}}
+            <li>{{title}}</li>
+        {{/each}}
+    </ul>
+{{/block}}

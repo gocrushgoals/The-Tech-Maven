@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS
+maven_db;
+
+CREATE DATABASE maven_tech_db
