@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const path = require('path');
+const User = require('./models/User');
 
 const Sequelize = require('sequelize');
 // initalize sequelize with session store
@@ -18,7 +19,6 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 
 const connection = require('./config/connection');
 const BlogPost = require('./models/BlogPost');
-const User = require('./User'); // Import your User model
 
 const app = express();
 const port = process.env.PORT || 3001;
