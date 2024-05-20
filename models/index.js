@@ -1,5 +1,5 @@
 const BlogPost = require('./models/blogPost');
-const User = require('./models/user');
+const User = require('./models/User');
 
 const sequelize = require('./config/database');
 

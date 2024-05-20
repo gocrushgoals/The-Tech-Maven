@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const path = require('path');
-const User = require('./models/user');
+const User = require('./models/User');
 
 const Sequelize = require('sequelize');
 // initalize sequelize with session store
