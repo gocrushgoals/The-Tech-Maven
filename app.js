@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const path = require('path');
-const User = require('./models/User');
+const User = require('./models/user');
 
 const Sequelize = require('sequelize');
 // initalize sequelize with session store
@@ -23,15 +23,6 @@ const BlogPost = require('./models/BlogPost');
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Test the connection
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((error) => {
-    console.error('Unable to connect to the database:', error);
-  });
 
   app.use(express.static(path.join(__dirname, 'public')));
  

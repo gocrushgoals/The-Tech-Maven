@@ -2,7 +2,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-const BlogPost = sequelize.define('BlogPost', {
+const BlogPost = sequelize.define('blogPost', {
   // Define attributes...
 });
 
