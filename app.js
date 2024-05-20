@@ -10,12 +10,20 @@ const Sequelize = require('sequelize');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // create database
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-  dialectModule: require('mysql2'),
-  port: process.env.DB_PORT
-});
+// const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+//   host: process.env.DB_HOST,
+//   port: process.env.DB_PORT,
+//   dialect: 'postgres'
+// });
+
+
+// comment out  mysql for postgres
+// const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+//   host: process.env.DB_HOST,
+//   dialect: 'mysql',
+//   dialectModule: require('mysql2'),
+//   port: process.env.DB_PORT
+// });
 
 const connection = require('./config/connection');
 const BlogPost = require('./models/BlogPost');
