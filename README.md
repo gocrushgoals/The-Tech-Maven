@@ -2,6 +2,11 @@
 
 ## Description
 A simple CMA-style blogging platform designed to help you share your technology thoughts, ideas, and experiences with the world. Built with Node.js, Express.js, Sequelize, and Handlebars, Maven Tech Blog offers a seamless blogging experience with a user-friendly interface.
+![Screenshot 2024-05-20 150430](https://github.com/gocrushgoals/tech-blog/assets/157322992/7d133c5b-ef87-45b6-9f9a-4048f2fa1138)
+
+![Screenshot 2024-05-20 150422](https://github.com/gocrushgoals/tech-blog/assets/157322992/0f583742-4910-4cdc-9030-ec9ae524c8c5)
+
+![Screenshot 2024-05-20 150357](https://github.com/gocrushgoals/tech-blog/assets/157322992/cf880149-7f11-492f-a12b-df157c926e38)
 
 
 ## User Story
