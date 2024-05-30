@@ -3,22 +3,12 @@ const express = require('express');
 const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const path = require('path');
-const User = require('./models/User');
-
+const User = require('./models');
 const Sequelize = require('sequelize');
 // initalize sequelize with session store
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require('./config/connection');
 
-// create database
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-  dialectModule: require('mysql2'),
-  port: process.env.DB_PORT
-});
-
-const connection = require('./config/connection');
-const BlogPost = require('./models/BlogPost');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -99,18 +89,18 @@ app.post('/login', async (req, res) => {
       }
 
       // Verify user's password
-      const isPasswordValid = await user.checkPassword(password);
+      // const isPasswordValid = await user.checkPassword(password);
 
-      if (!isPasswordValid) {
-          // If password is incorrect, redirect back to login page with error message
-          return res.render('login', {
-              pageTitle: 'Login',
-              errorMessage: 'Invalid email or password'
-          });
-      }
+      // if (!isPasswordValid) {
+      //     // If password is incorrect, redirect back to login page with error message
+      //     return res.render('login', {
+      //         pageTitle: 'Login',
+      //         errorMessage: 'Invalid email or password'
+      //     });
+      // }
 
       // If email and password are correct, set user session and redirect to dashboard or homepage
-      req.session.user = user;
+      // req.session.user = user;
       res.redirect('/dashboard'); // Change '/dashboard' to the appropriate destination after login
   } catch (error) {
       console.error('Error during login:', error);
